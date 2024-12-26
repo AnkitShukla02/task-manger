@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login user</title>
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+
+    <div class="user-access">
+        <div class="user-login-singup">
+            <div class="login form-style">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <input type="email" placeholder="Enter you e-mail" id="login-email">
+                    <input type="password" placeholder="Enter Password" id="login-password">
+                    <span class="error-login"></span>
+
+                    <input type="submit" value="Login">
+                </form>
+                <span class="forget-password">forget Password</span>
+                <p>new user first <span class="sing-up-span">Sing Up</span></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // ================== login user ==============
+
+        let loginForm = document.getElementById('login-form');
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+
+            let loginEmail = document.getElementById('login-email').value;
+            let loginPassword = document.getElementById('login-password').value;
+
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+
+            let userFound = users.find(user => user.userEmail === loginEmail && user.userPassword === loginPassword);
+
+            localStorage.setItem('loginUser', JSON.stringify(userFound));
+            
+            if (userFound) {
+                alert("Login successful! Redirecting to home page...");
+                window.location.href = "index.html"; // Redirect to homepage
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        })
+    </script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

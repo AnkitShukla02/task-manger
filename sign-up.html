@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login user</title>
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    
+
+    <div class="user-access">
+        <div class="user-login-singup">
+            <div class="signup form-style"> 
+                <h2>Sign Up</h2>
+                <form id="signup-form">
+                    <input type="text" placeholder="Name" id="rname">
+                    <input type="email" placeholder="E-mail" id="remail">
+                    <input type="tel" placeholder="Phone no." id="rphone">
+                    <input type="password" placeholder="Create Password" id="rpassword">
+
+                    <input type="submit" value="Rigester">
+                </form>
+                <p>already user <span class="login-up-span">Login</span></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // ================= Register User ============
+
+let signUpForm = document.getElementById('signup-form');
+signUpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let registerName = document.getElementById('rname').value;
+    let registerEmail = document.getElementById('remail').value;
+    let registerPhone = document.getElementById('rphone').value;
+    let registerPassword = document.getElementById('rpassword').value;
+    
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    let userData = {
+        userName: registerName,
+        userPhone: registerPhone,
+        userEmail: registerEmail,
+        userPassword: registerPassword,
+    };
+
+
+    users.push(userData);
+
+   localStorage.setItem('users', JSON.stringify(users));
+
+   alert("Registration successful! Redirecting to login page...");
+
+   window.location.href = "login.html";
+});
+
+    </script>
+    
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

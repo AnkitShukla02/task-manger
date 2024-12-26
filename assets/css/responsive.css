@@ -1,0 +1,52 @@
+@media screen and (max-width:1200px) {
+    .tasks {
+        .main-task {
+            gap: 20px;
+            .task-box{
+                padding: 10px 10px;
+            }
+        }
+    }
+
+    .container{
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    header {
+          .main-header {
+            .right-header {
+                gap: 10px;
+                .today-date{
+                    font-size: 18px;
+                }
+            }
+            .user-greet {
+                gap: 10px;
+                .greet-word{
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+                .greet-user-name{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .tasks {
+        .main-task {
+            .new-task-asin {
+                .new-task-items {
+                    grid-template-columns: repeat(auto-fill, minmax(46%, 1fr));
+                    gap: 10px;
+                }
+            }
+        }
+         .box-heading {
+            h2 {
+                font-size: 18px;
+            }
+        }
+    }
+}
