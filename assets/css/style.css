@@ -307,7 +307,7 @@ footer {
     }
 }
 
-.update-task{
+#update-task{
     width: 180px;
     background: #3778c9;
     color: #fff;
@@ -317,6 +317,7 @@ footer {
     margin-top: 20px;
     cursor: pointer;
     text-transform: capitalize;
+    text-align: center;
 }
 
 /* ============= Task Assign ====== */
